@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info Tech - Employee Portal</title>
+    <title>Support Initiative - Help Make a Difference</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,760 +12,1308 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: #f5f7fa;
+            background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
+        
+        /* Header & Language Switcher */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
             color: white;
             padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
-        header h1 {
-            margin-bottom: 10px;
-            font-size: 2.2rem;
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
-
-        .company-name {
-            font-size: 1.5rem;
-            opacity: 0.9;
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
             margin-bottom: 5px;
         }
-
-        header p {
-            font-size: 1.1rem;
+        
+        .logo-text p {
+            font-size: 0.9rem;
             opacity: 0.9;
         }
-
-        .video-section {
-            margin: 30px 0;
-            text-align: center;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
         }
-
-        .video-container {
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .lang-btn.active {
+            background: #FFD700;
+            color: #0d47a1;
+        }
+        
+        .header-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
             max-width: 800px;
             margin: 0 auto;
         }
-
-        .video-container video {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .login-section {
-            background-color: white;
-            padding: 30px;
+        
+        /* Current Month Banner */
+        .current-month-banner {
+            background: linear-gradient(to right, #FF9800, #FF5722);
+            color: white;
+            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 30px auto;
-        }
-
-        .login-section h2 {
+            margin: 25px 0;
             text-align: center;
-            margin-bottom: 20px;
-            color: #1e3c72;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.2);
         }
-
+        
+        /* Content Layout */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            color: #FFD700;
+        }
+        
+        /* Legal Notice Box */
+        .legal-notice {
+            background-color: #f8f9fa;
+            border-left: 5px solid #1a73e8;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        
+        .legal-notice h3 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* QR Section */
+        .qr-section {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .qr-code-container {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #1a73e8;
+        }
+        
+        .qr-code-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f0fe;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        /* Donation Form */
+        .donate-form {
+            margin-top: 20px;
+        }
+        
         .form-group {
             margin-bottom: 20px;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: #555;
         }
-
-        .form-group input {
+        
+        .form-group input, .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             font-size: 1rem;
-            transition: border 0.3s;
+            transition: border-color 0.3s ease;
         }
-
-        .form-group input:focus {
-            border-color: #2a5298;
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #1a73e8;
             outline: none;
         }
-
-        .btn {
-            display: block;
+        
+        .amount-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .amount-option {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .amount-option:hover {
+            background: #e8f0fe;
+        }
+        
+        .amount-option.selected {
+            background: #e8f0fe;
+            border-color: #1a73e8;
+            color: #1a73e8;
+            font-weight: 600;
+        }
+        
+        .donate-btn {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 18px;
+            background: linear-gradient(to right, #1a73e8, #0d47a1);
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        
+        .donate-btn:hover {
+            background: linear-gradient(to right, #0d47a1, #1a73e8);
+            transform: scale(1.02);
         }
-
-        .dashboard {
-            display: none;
-            margin-top: 30px;
+        
+        /* Donor List - Current Month */
+        .monthly-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-
-        .dashboard-header {
+        
+        .stat-box {
+            flex: 1;
+            min-width: 150px;
+            background: #e8f0fe;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .donor-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .donor-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
-
-        .dashboard-header h2 {
-            color: #1e3c72;
-            margin-bottom: 10px;
+        
+        .donor-item:last-child {
+            border-bottom: none;
         }
-
-        .employee-info {
+        
+        .donor-name {
             display: flex;
-            gap: 20px;
-            margin-bottom: 15px;
+            align-items: center;
+            gap: 15px;
         }
-
-        .stats-container {
+        
+        .donor-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
             display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            min-width: 150px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2a5298;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .logout-btn {
-            background: #e74c3c;
-            padding: 8px 15px;
-            border-radius: 5px;
+            align-items: center;
+            justify-content: center;
             color: white;
-            border: none;
-            cursor: pointer;
             font-weight: 600;
+            font-size: 1rem;
         }
-
-        .work-tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .tab.active {
-            border-bottom: 3px solid #2a5298;
-            color: #2a5298;
-            font-weight: 600;
-        }
-
-        .tab-content {
-            display: none;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -10px;
-        }
-
-        .form-col {
-            flex: 1;
-            min-width: 250px;
-            padding: 0 10px;
-            margin-bottom: 15px;
-        }
-
-        .form-col label {
-            display: block;
+        
+        .donor-info h3 {
+            font-size: 1rem;
             margin-bottom: 5px;
-            font-weight: 600;
+        }
+        
+        .donor-info .donation-date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .donation-amount {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a73e8;
+        }
+        
+        /* Detailed Description Section */
+        .detailed-description {
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+        
+        .detailed-description h3 {
+            color: #1a73e8;
+            margin: 25px 0 15px;
+            font-size: 1.3rem;
+        }
+        
+        .detailed-description h4 {
             color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.1rem;
         }
-
-        .form-col input,
-        .form-col select,
-        .form-col textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        
+        .detailed-description p {
+            margin-bottom: 15px;
+            text-align: justify;
         }
-
-        .form-col textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: #27ae60;
-            margin-top: 20px;
-        }
-
-        .call-log {
-            margin-top: 20px;
-        }
-
-        .call-item {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            border-left: 4px solid #2a5298;
-        }
-
-        .call-item h4 {
-            margin-bottom: 5px;
-            color: #2a5298;
-        }
-
-        .call-item p {
-            margin-bottom: 5px;
-            color: #666;
-        }
-
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 15px;
-            display: none;
-        }
-
-        .name-entry {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 30px auto;
-            display: none;
-        }
-
-        .name-entry h2 {
-            text-align: center;
+        
+        .detailed-description ul {
+            margin-left: 25px;
             margin-bottom: 20px;
-            color: #1e3c72;
         }
-
+        
+        .detailed-description li {
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid #e0e0e0;
             color: #666;
-            border-top: 1px solid #ddd;
+            background: white;
+            border-radius: 20px 20px 0 0;
         }
-
-        .sample-ids {
-            display: none;
-            /* Hidden as requested */
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
         }
-
+        
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a73e8;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: #1a73e8;
+            color: white;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a73e8;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .form-row {
+            .content-wrapper {
                 flex-direction: column;
             }
-
-            .form-col {
-                min-width: 100%;
-            }
-
-            .dashboard-header {
+            
+            .header-top {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 20px;
             }
-
-            .logout-btn {
-                margin-top: 10px;
+            
+            .amount-options {
+                justify-content: center;
             }
-
-            .stats-container {
-                flex-direction: column;
+            
+            .amount-option {
+                min-width: 100px;
             }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Toggle for detailed description */
+        .toggle-description {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toggle-description:hover {
+            background: #0d47a1;
+        }
+        
+        .description-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .description-content.expanded {
+            max-height: 5000px;
+        }
+        
+        /* Fallback message for missing QR image */
+        .qr-fallback {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f8f8;
+            border-radius: 5px;
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="container">
-            <div class="company-name">Info Tech</div>
-            <h1>Employee Portal</h1>
-            <p>Data Entry & Telecalling Management System</p>
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1 id="site-title">Support Initiative</h1>
+                        <p id="site-subtitle">Direct Support for Meaningful Causes</p>
+                    </div>
+                </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" id="lang-en">English</button>
+                    <button class="lang-btn" id="lang-hi">हिंदी</button>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <p class="tagline" id="tagline">Your direct support helps create meaningful change. Every contribution makes a difference.</p>
+            </div>
         </div>
     </header>
-
+    
     <div class="container">
-        <!-- Video Section (Only shown on login page) -->
-        <section class="video-section" id="videoSection">
-            <div class="video-container">
-                <video controls>
-                    <source src="Flexibility at Info Tech-VEED.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </section>
-
-        <!-- Login Section -->
-        <section class="login-section" id="loginSection">
-            <h2>Employee Login</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="employeeId">Employee ID</label>
-                    <input type="text" id="employeeId" placeholder="Enter your Employee ID (e.g., DT1234)" required>
-                    <small style="color: #666;">Format: DT followed by 4 digits (e.g., DT1234)</small>
+        <!-- Current Month Banner -->
+        <div class="current-month-banner" id="current-month-banner">
+            <i class="fas fa-calendar-alt"></i> 
+            <span id="month-title">This Month's Support (October 2023)</span>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="main-content">
+                <!-- Legal Notice -->
+                <div class="legal-notice">
+                    <h3><i class="fas fa-gavel"></i> <span id="legal-title">Important Legal Notice</span></h3>
+                    <p id="legal-text">This is a support initiative, not a registered charity. Contributions are voluntary gifts to support specific causes and are not tax-deductible. All funds received are used solely for the purposes described below.</p>
                 </div>
-                <div class="form-group">
-                    <label for="idCard">ID Card Number</label>
-                    <input type="text" id="idCard" placeholder="Enter your ID Card Number" required>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
-
-            <!-- Hidden sample IDs section -->
-            <div class="sample-ids">
-                <p><strong>Sample Employee IDs for testing:</strong></p>
-                <p>DT1231, DT2345, DT3456, DT4567, DT5678, DT6789, DT7890, DT8901, DT9012, DT0123</p>
-                <p><em>Use the same 4-digit number as ID Card (e.g., for DT1231, use 1231 as ID Card)</em></p>
-            </div>
-        </section>
-
-        <!-- Name Entry Section (Shown after login) -->
-        <section class="name-entry" id="nameEntrySection">
-            <h2>Enter Your Name</h2>
-            <form id="nameEntryForm">
-                <div class="form-group">
-                    <label for="employeeName">Your Full Name</label>
-                    <input type="text" id="employeeName" placeholder="Enter your full name" required>
-                </div>
-                <button type="submit" class="btn">Continue to Dashboard</button>
-            </form>
-        </section>
-
-        <!-- Dashboard (Hidden until login and name entry) -->
-        <section class="dashboard" id="dashboard">
-            <div class="dashboard-header">
-                <div>
-                    <h2>Welcome, <span id="displayEmployeeName">Employee</span></h2>
-                    <div class="employee-info">
-                        <div>Employee ID: <strong id="displayEmployeeId"></strong></div>
+                
+                <!-- QR Code Section with Custom Image -->
+                <div class="card">
+                    <h2><i class="fas fa-qrcode"></i> <span id="qr-title">Support via QR Code</span></h2>
+                    <div class="qr-section">
+                        <div class="qr-code-container">
+                            <!-- Using qrimage.png as QR code -->
+                            <img id="qrCodeImage" src="qrimage.png" alt="QR Code for Support Payments" 
+                                 onerror="this.onerror=null; this.style.display='none'; document.getElementById('qrFallback').style.display='block';">
+                        </div>
+                        <div id="qrFallback" class="qr-fallback" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span id="qr-fallback-text">QR code image not found. Please ensure qrimage.png is in the same directory.</span>
+                        </div>
+                        <p id="qr-description">Scan this QR code with any UPI app to provide support instantly</p>
+                        
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <i class="fab fa-google-pay"></i> Google Pay
+                            </div>
+                            <div class="payment-option">
+                                <i class="fas fa-mobile-alt"></i> PhonePe
+                            </div>
+                            <div class="payment-option">
+                                <i class="fas fa-university"></i> Paytm
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button class="logout-btn" id="logoutBtn">Logout</button>
-            </div>
-
-            <div class="stats-container">
-                <div class="stat-box">
-                    <div class="stat-number" id="dataEntriesCount">0</div>
-                    <div class="stat-label">Data Entries</div>
+                
+                <!-- Donation Form -->
+                <div class="card">
+                    <h2><i class="fas fa-hand-holding-heart"></i> <span id="donate-title">Provide Support</span></h2>
+                    <p id="donate-description">Select an amount or enter a custom support amount. Your contribution directly supports the causes outlined below.</p>
+                    
+                    <div class="donate-form">
+                        <div class="form-group">
+                            <label for="donorName" id="name-label">Your Name (Optional)</label>
+                            <input type="text" id="donorName" placeholder="Enter your name (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label id="amount-label">Select Support Amount</label>
+                            <div class="amount-options">
+                                <div class="amount-option" data-amount="500">₹500</div>
+                                <div class="amount-option" data-amount="750">₹750</div>
+                                <div class="amount-option selected" data-amount="1000">₹1000</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customAmount" id="custom-label">Custom Amount</label>
+                            <input type="number" id="customAmount" placeholder="Enter amount in rupees">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" id="message-label">Message (Optional)</label>
+                            <input type="text" id="message" placeholder="Optional message of support">
+                        </div>
+                        
+                        <button id="supportButton" class="donate-btn">
+                            <i class="fas fa-heart"></i> <span id="support-button-text">Support Now</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="callAttemptsCount">0</div>
-                    <div class="stat-label">Call Attempts</div>
-                </div>
-            </div>
-
-            <div class="work-tabs">
-                <div class="tab active" data-tab="data-entry">Data Entry</div>
-                <div class="tab" data-tab="telecalling">Telecalling</div>
-            </div>
-
-            <!-- Data Entry Tab -->
-            <div class="tab-content active" id="data-entry">
-                <h3>Data Entry Form</h3>
-                <form id="dataEntryForm">
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="customerName">Customer Name</label>
-                            <input type="text" id="customerName" required>
+                
+                <!-- Detailed Description -->
+                <div class="card">
+                    <h2><i class="fas fa-info-circle"></i> <span id="details-title">Detailed Information & Legal Terms</span></h2>
+                    
+                    <button class="toggle-description" id="toggle-description">
+                        <i class="fas fa-chevron-down" id="toggle-icon"></i>
+                        <span id="toggle-text">Show Detailed Information</span>
+                    </button>
+                    
+                    <div class="description-content" id="description-content">
+                        <div class="detailed-description">
+                            <div id="detailed-description-text">
+                                <!-- Content will be inserted here by JavaScript -->
+                            </div>
                         </div>
-                        <div class="form-col">
-                            <label for="customerPhone">Phone Number</label>
-                            <input type="tel" id="customerPhone" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="customerEmail">Email Address</label>
-                            <input type="email" id="customerEmail">
-                        </div>
-                        <div class="form-col">
-                            <label for="product">Product/Service</label>
-                            <select id="product" required>
-                                <option value="">Select Product</option>
-                                <option value="premium">Premium Package</option>
-                                <option value="standard">Standard Package</option>
-                                <option value="basic">Basic Package</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="comments">Additional Comments</label>
-                            <textarea id="comments"></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn submit-btn">Submit Data</button>
-                </form>
-                <div class="success-message" id="dataSuccess">Data submitted successfully!</div>
-            </div>
-
-            <!-- Telecalling Tab -->
-            <div class="tab-content" id="telecalling">
-                <h3>Telecalling Work</h3>
-                <form id="callForm">
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="callCustomerName">Customer Name</label>
-                            <input type="text" id="callCustomerName" required>
-                        </div>
-                        <div class="form-col">
-                            <label for="callCustomerPhone">Phone Number</label>
-                            <input type="tel" id="callCustomerPhone" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="callPurpose">Call Purpose</label>
-                            <select id="callPurpose" required>
-                                <option value="">Select Purpose</option>
-                                <option value="followup">Follow-up</option>
-                                <option value="sales">Sales</option>
-                                <option value="support">Customer Support</option>
-                                <option value="feedback">Feedback Collection</option>
-                            </select>
-                        </div>
-                        <div class="form-col">
-                            <label for="callDuration">Call Duration (minutes)</label>
-                            <input type="number" id="callDuration" min="1" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="callOutcome">Call Outcome</label>
-                            <select id="callOutcome" required>
-                                <option value="">Select Outcome</option>
-                                <option value="interested">Customer Interested</option>
-                                <option value="not-interested">Not Interested</option>
-                                <option value="callback">Callback Requested</option>
-                                <option value="info-sent">Information Sent</option>
-                            </select>
-                        </div>
-                        <div class="form-col">
-                            <label for="nextAction">Next Action</label>
-                            <input type="text" id="nextAction">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="callNotes">Call Notes</label>
-                            <textarea id="callNotes"></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn submit-btn">Log Call</button>
-                </form>
-                <div class="success-message" id="callSuccess">Call logged successfully!</div>
-
-                <div class="call-log">
-                    <h3>Recent Calls</h3>
-                    <div id="callLogs">
-                        <!-- Call logs will be added here dynamically -->
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <div class="sidebar">
+                <!-- Monthly Stats -->
+                <div class="card">
+                    <h2><i class="fas fa-chart-bar"></i> <span id="stats-title">This Month's Support</span></h2>
+                    <div class="monthly-stats">
+                        <div class="stat-box">
+                            <div class="stat-value" id="month-supporters">24</div>
+                            <div class="stat-label" id="month-supporters-label">Supporters</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">₹<span id="month-amount">18,750</span></div>
+                            <div class="stat-label" id="month-amount-label">Total Support</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value" id="month-causes">3</div>
+                            <div class="stat-label" id="month-causes-label">Causes Supported</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Current Month Supporters -->
+                <div class="card">
+                    <h2><i class="fas fa-users"></i> <span id="supporters-title">Recent Supporters This Month</span></h2>
+                    <ul class="donor-list" id="supporterList">
+                        <!-- Supporter list will be populated by JavaScript -->
+                    </ul>
+                </div>
+                
+                <!-- Recent Support Causes -->
+                <div class="card">
+                    <h2><i class="fas fa-hands-helping"></i> <span id="causes-title">Recent Causes Supported</span></h2>
+                    <div class="causes-list">
+                        <div class="cause-item">
+                            <h4 id="cause1-title">Education Support</h4>
+                            <p id="cause1-desc">₹8,250 provided for educational materials</p>
+                        </div>
+                        <div class="cause-item">
+                            <h4 id="cause2-title">Medical Assistance</h4>
+                            <p id="cause2-desc">₹6,500 for essential medical supplies</p>
+                        </div>
+                        <div class="cause-item">
+                            <h4 id="cause3-title">Community Help</h4>
+                            <p id="cause3-desc">₹4,000 for local community support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
     <footer>
         <div class="container">
-            <p>&copy; 2023 Info Tech - Employee Portal. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p id="footer-text">This is a support initiative. All contributions are voluntary gifts and not tax-deductible donations.</p>
+            <p id="copyright">© 2023 Support Initiative. All rights reserved.</p>
         </div>
     </footer>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Thank you for your support!</span>
+    </div>
 
     <script>
-        // Sample employee IDs with DT prefix
-        const validEmployees = [
-            { id: "DT1231", idCard: "1231" },
-            { id: "DT2345", idCard: "2345" },
-            { id: "DT3456", idCard: "3456" },
-            { id: "DT4567", idCard: "4567" },
-            { id: "DT5678", idCard: "5678" },
-            { id: "DT6789", idCard: "6789" },
-            { id: "DT7890", idCard: "7890" },
-            { id: "DT8901", idCard: "8901" },
-            { id: "DT9012", idCard: "9012" },
-            { id: "DT0123", idCard: "0123" }
+        // Language content
+        const content = {
+            en: {
+                siteTitle: "Support Initiative",
+                siteSubtitle: "Direct Support for Meaningful Causes",
+                tagline: "Your direct support helps create meaningful change. Every contribution makes a difference.",
+                monthTitle: "This Month's Support (October 2023)",
+                legalTitle: "Important Legal Notice",
+                legalText: "This is a support initiative, not a registered charity. Contributions are voluntary gifts to support specific causes and are not tax-deductible. All funds received are used solely for the purposes described below.",
+                qrTitle: "Support via QR Code",
+                qrDescription: "Scan this QR code with any UPI app to provide support instantly",
+                qrFallbackText: "QR code image not found. Please ensure qrimage.png is in the same directory.",
+                donateTitle: "Provide Support",
+                donateDescription: "Select an amount or enter a custom support amount. Your contribution directly supports the causes outlined below.",
+                nameLabel: "Your Name (Optional)",
+                amountLabel: "Select Support Amount",
+                customLabel: "Custom Amount",
+                messageLabel: "Message (Optional)",
+                supportButtonText: "Support Now",
+                detailsTitle: "Detailed Information & Legal Terms",
+                toggleText: "Show Detailed Information",
+                detailedDescription: `
+                    <h3>Purpose of This Support Initiative</h3>
+                    <p>This support initiative has been established to provide direct assistance for meaningful causes that create positive impact in various areas including education, healthcare, community development, and individual support. Unlike registered charitable organizations, this initiative operates to channel resources directly to where they are needed most, with minimal administrative overhead.</p>
+                    
+                    <h3>How Your Support Is Utilized</h3>
+                    <p>100% of the contributions received through this initiative are allocated to the specific causes outlined below. There are no administrative fees or overhead costs deducted from your support. The allocation is as follows:</p>
+                    
+                    <h4>1. Educational Support (40%)</h4>
+                    <p>Funds directed toward educational initiatives provide essential learning materials, support educational programs for underprivileged children, and facilitate access to quality education resources. This includes textbooks, stationery, digital learning tools, and educational workshops that empower individuals through knowledge and skill development.</p>
+                    
+                    <h4>2. Medical Assistance (35%)</h4>
+                    <p>Medical support funds are utilized for essential healthcare needs including emergency medical expenses, purchase of medicines and medical equipment, and support for individuals facing health challenges without adequate financial resources. This allocation ensures that basic healthcare needs are met for those in difficult circumstances.</p>
+                    
+                    <h4>3. Community Development (25%)</h4>
+                    <p>Community-focused initiatives receive support for local projects that enhance quality of life, provide essential resources to communities in need, and support sustainable development efforts. This includes food distribution programs, clean water initiatives, and community infrastructure improvements.</p>
+                    
+                    <h3>Transparency and Accountability</h3>
+                    <p>This initiative maintains transparency through regular updates provided to supporters. While this is not a registered charitable organization and therefore not subject to the same reporting requirements, we voluntarily provide:</p>
+                    <ul>
+                        <li>Monthly summaries of funds received and allocated</li>
+                        <li>Updates on specific causes supported</li>
+                        <li>Documentation of impact where possible</li>
+                        <li>Regular communication about initiative progress</li>
+                    </ul>
+                    
+                    <h3>Legal Status and Tax Implications</h3>
+                    <p>It is important to understand the legal status of this initiative:</p>
+                    <ul>
+                        <li>This is NOT a registered charitable organization under Section 12A or 80G of the Income Tax Act, 1961</li>
+                        <li>Contributions are considered voluntary gifts, not donations to a charitable institution</li>
+                        <li>No tax deduction certificates will be issued for contributions</li>
+                        <li>The initiative operates within the legal framework for fundraising in India</li>
+                        <li>All contributions are received and utilized as described</li>
+                    </ul>
+                    
+                    <h3>Use of Funds and Reporting</h3>
+                    <p>Funds received through this initiative are maintained in a separate account dedicated solely to this purpose. Regular accounting records are maintained, and while not legally required to publish financial statements for such an initiative, summary reports are made available to supporters upon request. The allocation of funds follows the percentage breakdown mentioned above, with adjustments made only in exceptional circumstances with transparent communication to supporters.</p>
+                    
+                    <h3>Privacy and Data Protection</h3>
+                    <p>Your privacy is respected and protected. Personal information provided during the support process is used only for communication regarding this initiative and is not shared with third parties. Supporters' names are displayed on this page only with explicit consent. You may request anonymity or removal of your information at any time by contacting the initiative directly.</p>
+                    
+                    <h3>Terms of Support</h3>
+                    <p>By providing support through this initiative, you acknowledge and agree that:</p>
+                    <ul>
+                        <li>Your contribution is a voluntary gift, not a charitable donation</li>
+                        <li>No goods or services are provided in exchange for your support</li>
+                        <li>The initiative has discretion in allocating funds to the described causes</li>
+                        <li>You are providing support at your own discretion without expectation of return</li>
+                        <li>The initiative reserves the right to modify the focus areas based on changing needs</li>
+                    </ul>
+                    
+                    <h3>Contact and Communication</h3>
+                    <p>For questions, concerns, or requests for additional information about this initiative, please use the contact methods provided in the footer. Regular updates are communicated to supporters who provide contact information, with the option to unsubscribe from communications at any time.</p>
+                    
+                    <h3>Amendment of Terms</h3>
+                    <p>This initiative reserves the right to amend these terms and descriptions as needed. Any significant changes will be communicated to recent supporters and updated on this page. The continued provision of support after such changes constitutes acceptance of the revised terms.</p>
+                    
+                    <h3>Governing Law</h3>
+                    <p>This support initiative and all matters relating to it are governed by the laws of India. Any disputes relating to this initiative shall be subject to the exclusive jurisdiction of the courts located in the initiative's primary location.</p>
+                    
+                    <div class="legal-notice" style="margin-top: 30px;">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Final Acknowledgment</h3>
+                        <p>By providing support through this initiative, you acknowledge that you have read, understood, and agree to the terms outlined above. Your support represents a voluntary gift to further the causes described, with full understanding of the initiative's non-charitable status.</p>
+                    </div>
+                `,
+                statsTitle: "This Month's Support",
+                monthSupportersLabel: "Supporters",
+                monthAmountLabel: "Total Support",
+                monthCausesLabel: "Causes Supported",
+                supportersTitle: "Recent Supporters This Month",
+                causesTitle: "Recent Causes Supported",
+                cause1Title: "Education Support",
+                cause1Desc: "₹8,250 provided for educational materials",
+                cause2Title: "Medical Assistance",
+                cause2Desc: "₹6,500 for essential medical supplies",
+                cause3Title: "Community Help",
+                cause3Desc: "₹4,000 for local community support",
+                footerText: "This is a support initiative. All contributions are voluntary gifts and not tax-deductible donations.",
+                copyright: "© 2023 Support Initiative. All rights reserved.",
+                notificationThankYou: "Thank you for your support!",
+                notificationNewSupporter: "just supported with ₹"
+            },
+            hi: {
+                siteTitle: "समर्थन पहल",
+                siteSubtitle: "सार्थक उद्देश्यों के लिए प्रत्यक्ष समर्थन",
+                tagline: "आपका प्रत्यक्ष समर्थन सार्थक बदलाव लाने में मदद करता है। हर योगदान एक अंतर बनाता है।",
+                monthTitle: "इस महीने का समर्थन (अक्टूबर 2023)",
+                legalTitle: "महत्वपूर्ण कानूनी सूचना",
+                legalText: "यह एक समर्थन पहल है, एक पंजीकृत धर्मार्थ संस्था नहीं। योगदान विशिष्ट उद्देश्यों का समर्थन करने के लिए स्वैच्छिक उपहार हैं और कर-कटौती योग्य नहीं हैं। प्राप्त सभी धनराशि का उपयोग केवल नीचे वर्णित उद्देश्यों के लिए किया जाता है।",
+                qrTitle: "क्यूआर कोड के माध्यम से समर्थन करें",
+                qrDescription: "तुरंत समर्थन प्रदान करने के लिए किसी भी यूपीआई ऐप से इस क्यूआर कोड को स्कैन करें",
+                qrFallbackText: "क्यूआर कोड छवि नहीं मिली। कृपया सुनिश्चित करें कि qrimage.png उसी निर्देशिका में है।",
+                donateTitle: "समर्थन प्रदान करें",
+                donateDescription: "एक राशि चुनें या कस्टम समर्थन राशि दर्ज करें। आपका योगदान सीधे नीचे बताए गए उद्देश्यों का समर्थन करता है।",
+                nameLabel: "आपका नाम (वैकल्पिक)",
+                amountLabel: "समर्थन राशि चुनें",
+                customLabel: "कस्टम राशि",
+                messageLabel: "संदेश (वैकल्पिक)",
+                supportButtonText: "अभी समर्थन करें",
+                detailsTitle: "विस्तृत जानकारी और कानूनी शर्तें",
+                toggleText: "विस्तृत जानकारी दिखाएं",
+                detailedDescription: `
+                    <h3>इस समर्थन पहल का उद्देश्य</h3>
+                    <p>यह समर्थन पहल शिक्षा, स्वास्थ्य सेवा, सामुदायिक विकास और व्यक्तिगत समर्थन सहित विभिन्न क्षेत्रों में सकारात्मक प्रभाव पैदा करने वाले सार्थक उद्देश्यों के लिए प्रत्यक्ष सहायता प्रदान करने के लिए स्थापित की गई है। पंजीकृत धर्मार्थ संगठनों के विपरीत, यह पहल संसाधनों को सीधे उन स्थानों पर पहुंचाने के लिए कार्य करती है जहां उनकी सबसे अधिक आवश्यकता है, न्यूनतम प्रशासनिक ओवरहेड के साथ।</p>
+                    
+                    <h3>आपके समर्थन का उपयोग कैसे किया जाता है</h3>
+                    <p>इस पहल के माध्यम से प्राप्त योगदान का 100% नीचे बताए गए विशिष्ट उद्देश्यों के लिए आवंटित किया जाता है। आपके समर्थन से कोई प्रशासनिक शुल्क या ओवरहेड लागत काटी नहीं जाती है। आवंटन इस प्रकार है:</p>
+                    
+                    <h4>1. शैक्षिक समर्थन (40%)</h4>
+                    <p>शैक्षिक पहलों की ओर निर्देशित धनराशि आवश्यक शिक्षण सामग्री प्रदान करती है, वंचित बच्चों के लिए शैक्षिक कार्यक्रमों का समर्थन करती है, और गुणवत्तापूर्ण शिक्षा संसाधनों तक पहुंच की सुविधा प्रदान करती है। इसमें पाठ्यपुस्तकें, स्टेशनरी, डिजिटल लर्निंग टूल और शैक्षिक कार्यशालाएं शामिल हैं जो ज्ञान और कौशल विकास के माध्यम से व्यक्तियों को सशक्त बनाती हैं।</p>
+                    
+                    <h4>2. चिकित्सा सहायता (35%)</h4>
+                    <p>चिकित्सा समर्थन धन का उपयोग आवश्यक स्वास्थ्य सेवा आवश्यकताओं के लिए किया जाता है जिसमें आपातकालीन चिकित्सा व्यय, दवाओं और चिकित्सा उपकरणों की खरीद और पर्याप्त वित्तीय संसाधनों के बिना स्वास्थ्य चुनौतियों का सामना करने वाले व्यक्तियों का समर्थन शामिल है। यह आवंटन सुनिश्चित करता है कि कठिन परिस्थितियों में लोगों की बुनियादी स्वास्थ्य सेवा आवश्यकताएं पूरी की जाएं।</p>
+                    
+                    <h4>3. सामुदायिक विकास (25%)</h4>
+                    <p>समुदाय-केंद्रित पहलों को स्थानीय परियोजनाओं के लिए समर्थन प्राप्त होता है जो जीवन की गुणवत्ता बढ़ाते हैं, जरूरतमंद समुदायों को आवश्यक संसाधन प्रदान करते हैं और सतत विकास प्रयासों का समर्थन करते हैं। इसमें खाद्य वितरण कार्यक्रम, स्वच्छ पानी पहल और सामुदायिक बुनियादी ढांचे में सुधार शामिल हैं।</p>
+                    
+                    <h3>पारदर्शिता और जवाबदेही</h3>
+                    <p>यह पहल समर्थकों को नियमित अपडेट प्रदान करके पारदर्शिता बनाए रखती है। हालांकि यह एक पंजीकृत धर्मार्थ संगठन नहीं है और इसलिए समान रिपोर्टिंग आवश्यकताओं के अधीन नहीं है, हम स्वेच्छा से प्रदान करते हैं:</p>
+                    <ul>
+                        <li>प्राप्त और आवंटित धन का मासिक सारांश</li>
+                        <li>समर्थित विशिष्ट उद्देश्यों पर अपडेट</li>
+                        <li>जहां संभव हो प्रभाव का दस्तावेजीकरण</li>
+                        <li>पहल की प्रगति के बारे में नियमित संचार</li>
+                    </ul>
+                    
+                    <h3>कानूनी स्थिति और कर प्रभाव</h3>
+                    <p>इस पहल की कानूनी स्थिति को समझना महत्वपूर्ण है:</p>
+                    <ul>
+                        <li>यह आयकर अधिनियम, 1961 की धारा 12ए या 80जी के तहत एक पंजीकृत धर्मार्थ संगठन नहीं है</li>
+                        <li>योगदान को स्वैच्छिक उपहार माना जाता है, धर्मार्थ संस्था को दान नहीं</li>
+                        <li>योगदान के लिए कोई कर कटौती प्रमाण पत्र जारी नहीं किया जाएगा</li>
+                        <li>यह पहल भारत में धन उगाहने के लिए कानूनी ढांचे के भीतर संचालित होती है</li>
+                        <li>सभी योगदान प्राप्त और वर्णित रूप में उपयोग किए जाते हैं</li>
+                    </ul>
+                    
+                    <h3>धन का उपयोग और रिपोर्टिंग</h3>
+                    <p>इस पहल के माध्यम से प्राप्त धन को इस उद्देश्य के लिए समर्पित एक अलग खाते में रखा जाता है। नियमित लेखा रिकॉर्ड रखे जाते हैं, और हालांकि ऐसी पहल के लिए वित्तीय विवरण प्रकाशित करने के लिए कानूनी रूप से आवश्यक नहीं है, सारांश रिपोर्ट समर्थकों के अनुरोध पर उपलब्ध कराई जाती हैं। धन का आवंटन ऊपर बताए गए प्रतिशत विभाजन का पालन करता है, केवल असाधारण परिस्थितियों में समर्थकों के साथ पारदर्शी संचार के साथ समायोजन किया जाता है।</p>
+                    
+                    <h3>गोपनीयता और डेटा सुरक्षा</h3>
+                    <p>आपकी गोपनीयता का सम्मान और सुरक्षा की जाती है। समर्थन प्रक्रिया के दौरान प्रदान की गई व्यक्तिगत जानकारी का उपयोग केवल इस पहल के संबंध में संचार के लिए किया जाता है और तीसरे पक्ष के साथ साझा नहीं की जाती है। समर्थकों के नाम केवल स्पष्ट सहमति से इस पेज पर प्रदर्शित किए जाते हैं। आप किसी भी समय पहल से सीधे संपर्क करके अपनी जानकारी को गुमनाम या हटाने का अनुरोध कर सकते हैं।</p>
+                    
+                    <h3>समर्थन की शर्तें</h3>
+                    <p>इस पहल के माध्यम से समर्थन प्रदान करके, आप स्वीकार करते हैं और सहमत होते हैं कि:</p>
+                    <ul>
+                        <li>आपका योगदान एक स्वैच्छिक उपहार है, धर्मार्थ दान नहीं</li>
+                        <li>आपके समर्थन के बदले में कोई माल या सेवाएं प्रदान नहीं की जाती हैं</li>
+                        <li>पहल के पास वर्णित उद्देश्यों के लिए धन आवंटित करने का विवेक है</li>
+                        <li>आप बिना किसी प्रतिफल की अपेक्षा के अपने विवेक से समर्थन प्रदान कर रहे हैं</li>
+                        <li>पहल बदलती आवश्यकताओं के आधार पर फोकस क्षेत्रों को संशोधित करने का अधिकार सुरक्षित रखती है</li>
+                    </ul>
+                    
+                    <h3>संपर्क और संचार</h3>
+                    <p>इस पहल के बारे में प्रश्नों, चिंताओं या अतिरिक्त जानकारी के अनुरोध के लिए, कृपया फुटर में प्रदान की गई संपर्क विधियों का उपयोग करें। नियमित अपडेट उन समर्थकों को संप्रेषित किए जाते हैं जो संपर्क जानकारी प्रदान करते हैं, जिनके पास किसी भी समय संचार से सदस्यता समाप्त करने का विकल्प होता है।</p>
+                    
+                    <h3>शर्तों में संशोधन</h3>
+                    <p>यह पहल आवश्यकतानुसार इन शर्तों और विवरणों में संशोधन करने का अधिकार सुरक्षित रखती है। किसी भी महत्वपूर्ण परिवर्तन की सूचना हाल के समर्थकों को दी जाएगी और इस पृष्ठ पर अपडेट की जाएगी। ऐसे परिवर्तनों के बाद समर्थन का निरंतर प्रावधान संशोधित शर्तों के स्वीकृति का गठन करता है।</p>
+                    
+                    <h3>शासी कानून</h3>
+                    <p>यह समर्थन पहल और इससे संबंधित सभी मामले भारत के कानूनों द्वारा शासित हैं। इस पहल से संबंधित किसी भी विवाद पर पहल के प्राथमिक स्थान पर स्थित अदालतों का अनन्य अधिकार क्षेत्र होगा।</p>
+                    
+                    <div class="legal-notice" style="margin-top: 30px;">
+                        <h3><i class="fas fa-exclamation-triangle"></i> अंतिम स्वीकृति</h3>
+                        <p>इस पहल के माध्यम से समर्थन प्रदान करके, आप स्वीकार करते हैं कि आपने ऊपर बताई गई शर्तों को पढ़ा, समझा और उनसे सहमत हैं। आपका समर्थन वर्णित उद्देश्यों को आगे बढ़ाने के लिए एक स्वैच्छिक उपहार का प्रतिनिधित्व करता है, जिसमें पहल की गैर-धर्मार्थ स्थिति की पूरी समझ शामिल है।</p>
+                    </div>
+                `,
+                statsTitle: "इस महीने का समर्थन",
+                monthSupportersLabel: "समर्थक",
+                monthAmountLabel: "कुल समर्थन",
+                monthCausesLabel: "समर्थित उद्देश्य",
+                supportersTitle: "इस महीने के हाल के समर्थक",
+                causesTitle: "हाल के समर्थित उद्देश्य",
+                cause1Title: "शैक्षिक समर्थन",
+                cause1Desc: "शैक्षिक सामग्री के लिए ₹8,250 प्रदान किया गया",
+                cause2Title: "चिकित्सा सहायता",
+                cause2Desc: "आवश्यक चिकित्सा आपूर्ति के लिए ₹6,500",
+                cause3Title: "सामुदायिक सहायता",
+                cause3Desc: "स्थानीय समुदाय समर्थन के लिए ₹4,000",
+                footerText: "यह एक समर्थन पहल है। सभी योगदान स्वैच्छिक उपहार हैं और कर-कटौती योग्य दान नहीं हैं।",
+                copyright: "© 2023 समर्थन पहल। सर्वाधिकार सुरक्षित।",
+                notificationThankYou: "आपके समर्थन के लिए धन्यवाद!",
+                notificationNewSupporter: "ने अभी समर्थन किया ₹"
+            }
+        };
+        
+        // Current month and year
+        const currentDate = new Date();
+        const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+        const currentYear = currentDate.getFullYear();
+        
+        // Initial supporters data for current month only
+        let supporters = [
+            { name: "Rajesh Sharma", amount: 1000, date: getCurrentMonthDate(1), message: "Happy to support!" },
+            { name: "Priya Patel", amount: 950, date: getCurrentMonthDate(3), message: "For education" },
+            { name: "Amit Kumar", amount: 900, date: getCurrentMonthDate(5), message: "Keep up the good work" },
+            { name: "Neha Gupta", amount: 850, date: getCurrentMonthDate(7), message: "" },
+            { name: "Sanjay Reddy", amount: 800, date: getCurrentMonthDate(9), message: "For medical support" },
+            { name: "Ananya Singh", amount: 750, date: getCurrentMonthDate(11), message: "" },
+            { name: "Karan Mehta", amount: 700, date: getCurrentMonthDate(13), message: "Great initiative" },
+            { name: "Sunil Joshi", amount: 650, date: getCurrentMonthDate(15), message: "For community help" },
+            { name: "Pooja Malhotra", amount: 600, date: getCurrentMonthDate(17), message: "" },
+            { name: "Rohan Verma", amount: 550, date: getCurrentMonthDate(19), message: "Supporting a good cause" }
         ];
-
+        
+        let monthlySupporters = 24;
+        let monthlyAmount = 18750;
+        let monthlyCauses = 3;
+        let selectedAmount = 1000;
+        let currentLanguage = 'en';
+        let descriptionExpanded = false;
+        
         // DOM elements
-        const loginForm = document.getElementById('loginForm');
-        const loginSection = document.getElementById('loginSection');
-        const videoSection = document.getElementById('videoSection');
-        const nameEntrySection = document.getElementById('nameEntrySection');
-        const nameEntryForm = document.getElementById('nameEntryForm');
-        const dashboard = document.getElementById('dashboard');
-        const displayEmployeeName = document.getElementById('displayEmployeeName');
-        const displayEmployeeId = document.getElementById('displayEmployeeId');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const tabs = document.querySelectorAll('.tab');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const dataEntryForm = document.getElementById('dataEntryForm');
-        const callForm = document.getElementById('callForm');
-        const dataSuccess = document.getElementById('dataSuccess');
-        const callSuccess = document.getElementById('callSuccess');
-        const callLogs = document.getElementById('callLogs');
-        const dataEntriesCount = document.getElementById('dataEntriesCount');
-        const callAttemptsCount = document.getElementById('callAttemptsCount');
-
-        // Employee data tracking
-        let currentEmployee = null;
-        let dataEntries = 0;
-        let callAttempts = 0;
-
-        // Tab switching functionality
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
-
-                // Update active tab
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                // Show corresponding content
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.id === tabId) {
-                        content.classList.add('active');
-                    }
+        const supporterList = document.getElementById('supporterList');
+        const monthSupportersElement = document.getElementById('month-supporters');
+        const monthAmountElement = document.getElementById('month-amount');
+        const monthCausesElement = document.getElementById('month-causes');
+        const amountOptions = document.querySelectorAll('.amount-option');
+        const customAmountInput = document.getElementById('customAmount');
+        const supportButton = document.getElementById('supportButton');
+        const supporterNameInput = document.getElementById('donorName');
+        const messageInput = document.getElementById('message');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        const currentMonthBanner = document.getElementById('current-month-banner');
+        const monthTitle = document.getElementById('month-title');
+        const detailedDescriptionElement = document.getElementById('detailed-description-text');
+        const toggleDescriptionBtn = document.getElementById('toggle-description');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const toggleText = document.getElementById('toggle-text');
+        const descriptionContent = document.getElementById('description-content');
+        
+        // Language buttons
+        const langEnBtn = document.getElementById('lang-en');
+        const langHiBtn = document.getElementById('lang-hi');
+        
+        // Initialize the page
+        function init() {
+            // Update current month banner
+            updateCurrentMonthBanner();
+            
+            // Display initial supporters
+            renderSupporterList();
+            
+            // Update stats
+            updateStats();
+            
+            // Set up detailed description
+            updateDetailedDescription();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Update language initially
+            updateLanguage('en');
+        }
+        
+        // Generate a date in the current month (day between 1-28)
+        function getCurrentMonthDate(day) {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            return new Date(year, month, day).toISOString().split('T')[0];
+        }
+        
+        // Update current month banner
+        function updateCurrentMonthBanner() {
+            const monthYear = `${currentMonth} ${currentYear}`;
+            if (currentLanguage === 'en') {
+                monthTitle.textContent = `This Month's Support (${monthYear})`;
+            } else {
+                monthTitle.textContent = `इस महीने का समर्थन (${monthYear})`;
+            }
+        }
+        
+        // Render supporter list
+        function renderSupporterList() {
+            supporterList.innerHTML = '';
+            
+            // Sort supporters by date (newest first)
+            const sortedSupporters = [...supporters].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Display current month supporters
+            sortedSupporters.forEach(supporter => {
+                const supporterItem = document.createElement('li');
+                supporterItem.className = 'supporter-item';
+                
+                // Get initials for avatar
+                const nameParts = supporter.name.split(' ');
+                const initials = nameParts[0].charAt(0) + (nameParts[1] ? nameParts[1].charAt(0) : nameParts[0].charAt(1));
+                
+                // Format date
+                const supportDate = new Date(supporter.date);
+                const formattedDate = supportDate.toLocaleDateString(currentLanguage === 'en' ? 'en-IN' : 'hi-IN', {
+                    day: 'numeric',
+                    month: 'short'
+                });
+                
+                supporterItem.innerHTML = `
+                    <div class="donor-name">
+                        <div class="donor-avatar">${initials.toUpperCase()}</div>
+                        <div class="donor-info">
+                            <h3>${supporter.name}</h3>
+                            <div class="donation-date">${formattedDate}${supporter.message ? ' • ' + supporter.message : ''}</div>
+                        </div>
+                    </div>
+                    <div class="donation-amount">₹${supporter.amount}</div>
+                `;
+                
+                supporterList.appendChild(supporterItem);
+            });
+        }
+        
+        // Update stats display
+        function updateStats() {
+            monthSupportersElement.textContent = monthlySupporters;
+            monthAmountElement.textContent = monthlyAmount.toLocaleString('en-IN');
+            monthCausesElement.textContent = monthlyCauses;
+        }
+        
+        // Update detailed description
+        function updateDetailedDescription() {
+            detailedDescriptionElement.innerHTML = content[currentLanguage].detailedDescription;
+        }
+        
+        // Toggle detailed description
+        function toggleDescription() {
+            descriptionExpanded = !descriptionExpanded;
+            
+            if (descriptionExpanded) {
+                descriptionContent.classList.add('expanded');
+                toggleIcon.className = 'fas fa-chevron-up';
+                toggleText.textContent = currentLanguage === 'en' ? 'Hide Detailed Information' : 'विस्तृत जानकारी छिपाएं';
+            } else {
+                descriptionContent.classList.remove('expanded');
+                toggleIcon.className = 'fas fa-chevron-down';
+                toggleText.textContent = currentLanguage === 'en' ? 'Show Detailed Information' : 'विस्तृत जानकारी दिखाएं';
+            }
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Generate random Indian name
+        function generateIndianName() {
+            const firstName = currentLanguage === 'en' 
+                ? ["Aarav", "Vivaan", "Aditya", "Arjun", "Sai", "Reyansh", "Shaurya", "Krishna", "Raj", "Amit"][Math.floor(Math.random() * 10)]
+                : ["अरविंद", "रमेश", "सुरेश", "मोहन", "राजेश", "प्रकाश", "विकास", "अनिल", "संजय", "विजय"][Math.floor(Math.random() * 10)];
+            
+            const lastName = ["Sharma", "Verma", "Patel", "Kumar", "Singh", "Reddy", "Mehta", "Gupta", "Joshi", "Malhotra"][Math.floor(Math.random() * 10)];
+            
+            return `${firstName} ${lastName}`;
+        }
+        
+        // Generate random amount between 500 and 1000
+        function generateRandomAmount() {
+            return Math.floor(Math.random() * 501) + 500; // 500 to 1000
+        }
+        
+        // Update language content
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update all text elements
+            document.getElementById('site-title').textContent = content[lang].siteTitle;
+            document.getElementById('site-subtitle').textContent = content[lang].siteSubtitle;
+            document.getElementById('tagline').textContent = content[lang].tagline;
+            document.getElementById('month-title').textContent = content[lang].monthTitle;
+            document.getElementById('legal-title').textContent = content[lang].legalTitle;
+            document.getElementById('legal-text').textContent = content[lang].legalText;
+            document.getElementById('qr-title').textContent = content[lang].qrTitle;
+            document.getElementById('qr-description').textContent = content[lang].qrDescription;
+            document.getElementById('qr-fallback-text').textContent = content[lang].qrFallbackText;
+            document.getElementById('donate-title').textContent = content[lang].donateTitle;
+            document.getElementById('donate-description').textContent = content[lang].donateDescription;
+            document.getElementById('name-label').textContent = content[lang].nameLabel;
+            document.getElementById('amount-label').textContent = content[lang].amountLabel;
+            document.getElementById('custom-label').textContent = content[lang].customLabel;
+            document.getElementById('message-label').textContent = content[lang].messageLabel;
+            document.getElementById('support-button-text').textContent = content[lang].supportButtonText;
+            document.getElementById('details-title').textContent = content[lang].detailsTitle;
+            document.getElementById('toggle-text').textContent = content[lang].toggleText;
+            document.getElementById('stats-title').textContent = content[lang].statsTitle;
+            document.getElementById('month-supporters-label').textContent = content[lang].monthSupportersLabel;
+            document.getElementById('month-amount-label').textContent = content[lang].monthAmountLabel;
+            document.getElementById('month-causes-label').textContent = content[lang].monthCausesLabel;
+            document.getElementById('supporters-title').textContent = content[lang].supportersTitle;
+            document.getElementById('causes-title').textContent = content[lang].causesTitle;
+            document.getElementById('cause1-title').textContent = content[lang].cause1Title;
+            document.getElementById('cause1-desc').textContent = content[lang].cause1Desc;
+            document.getElementById('cause2-title').textContent = content[lang].cause2Title;
+            document.getElementById('cause2-desc').textContent = content[lang].cause2Desc;
+            document.getElementById('cause3-title').textContent = content[lang].cause3Title;
+            document.getElementById('cause3-desc').textContent = content[lang].cause3Desc;
+            document.getElementById('footer-text').textContent = content[lang].footerText;
+            document.getElementById('copyright').textContent = content[lang].copyright;
+            
+            // Update current month banner
+            updateCurrentMonthBanner();
+            
+            // Update placeholders
+            supporterNameInput.placeholder = lang === 'en' ? 'Enter your name (optional)' : 'अपना नाम दर्ज करें (वैकल्पिक)';
+            messageInput.placeholder = lang === 'en' ? 'Optional message of support' : 'समर्थन का वैकल्पिक संदेश';
+            
+            // Update detailed description
+            updateDetailedDescription();
+            
+            // Update toggle button text if expanded
+            if (descriptionExpanded) {
+                toggleText.textContent = currentLanguage === 'en' ? 'Hide Detailed Information' : 'विस्तृत जानकारी छिपाएं';
+            }
+            
+            // Update language buttons
+            if (lang === 'en') {
+                langEnBtn.classList.add('active');
+                langHiBtn.classList.remove('active');
+            } else {
+                langHiBtn.classList.add('active');
+                langEnBtn.classList.remove('active');
+            }
+            
+            // Re-render supporter list with updated dates
+            renderSupporterList();
+        }
+        
+        // Set up event listeners
+        function setupEventListeners() {
+            // Language switcher
+            langEnBtn.addEventListener('click', () => updateLanguage('en'));
+            langHiBtn.addEventListener('click', () => updateLanguage('hi'));
+            
+            // Toggle description
+            toggleDescriptionBtn.addEventListener('click', toggleDescription);
+            
+            // Amount option selection
+            amountOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    amountOptions.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    selectedAmount = parseInt(option.getAttribute('data-amount'));
+                    customAmountInput.value = '';
                 });
             });
-        });
-
-        // Login functionality
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const employeeId = document.getElementById('employeeId').value;
-            const idCard = document.getElementById('idCard').value;
-
-            // Validate employee ID format
-            if (!/^DT\d{4}$/.test(employeeId)) {
-                alert('Employee ID must be in the format DT followed by 4 digits (e.g., DT1234)');
-                return;
-            }
-
-            // Check if credentials are valid
-            const employee = validEmployees.find(emp =>
-                emp.id === employeeId && emp.idCard === idCard
-            );
-
-            if (employee) {
-                // Successful login
-                currentEmployee = employee;
-                loginForm.reset();
-                loginSection.style.display = 'none';
-                videoSection.style.display = 'none';
-                nameEntrySection.style.display = 'block';
-            } else {
-                alert('Invalid Employee ID or ID Card Number. Please try again.');
-            }
-        });
-
-        // Name entry functionality
-        nameEntryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const employeeName = document.getElementById('employeeName').value;
-
-            if (employeeName.trim() === '') {
-                alert('Please enter your name');
-                return;
-            }
-
-            // Set employee name and show dashboard
-            displayEmployeeName.textContent = employeeName;
-            displayEmployeeId.textContent = currentEmployee.id;
-            nameEntrySection.style.display = 'none';
-            dashboard.style.display = 'block';
-
-            // Reset counters for new session
-            dataEntries = 0;
-            callAttempts = 0;
-            updateCounters();
-        });
-
-        // Logout functionality
-        logoutBtn.addEventListener('click', () => {
-            dashboard.style.display = 'none';
-            nameEntrySection.style.display = 'none';
-            loginSection.style.display = 'block';
-            videoSection.style.display = 'block';
-            nameEntryForm.reset();
-            currentEmployee = null;
-        });
-
-        // Update counters display
-        function updateCounters() {
-            dataEntriesCount.textContent = dataEntries;
-            callAttemptsCount.textContent = callAttempts;
+            
+            // Custom amount input
+            customAmountInput.addEventListener('input', () => {
+                const customAmount = parseInt(customAmountInput.value);
+                if (!isNaN(customAmount) && customAmount > 0) {
+                    amountOptions.forEach(opt => opt.classList.remove('selected'));
+                    selectedAmount = customAmount;
+                }
+            });
+            
+            // Support button
+            supportButton.addEventListener('click', () => {
+                const name = supporterNameInput.value.trim();
+                const customAmount = parseInt(customAmountInput.value);
+                const message = messageInput.value.trim();
+                
+                // Use custom amount if provided
+                if (!isNaN(customAmount) && customAmount > 0) {
+                    selectedAmount = customAmount;
+                }
+                
+                // Validate amount
+                if (selectedAmount < 10) {
+                    showNotification(currentLanguage === 'en' 
+                        ? 'Minimum support amount is ₹10' 
+                        : 'न्यूनतम समर्थन राशि ₹10 है');
+                    return;
+                }
+                
+                // Create new supporter with current date
+                const today = new Date();
+                const currentMonthDate = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split('T')[0];
+                
+                const newSupporter = {
+                    name: name || "Anonymous Supporter",
+                    amount: selectedAmount,
+                    date: currentMonthDate,
+                    message: message
+                };
+                
+                // Add to supporters array (at beginning to show at top)
+                supporters.unshift(newSupporter);
+                
+                // Update monthly totals
+                monthlySupporters++;
+                monthlyAmount += selectedAmount;
+                
+                // Update causes supported occasionally
+                if (monthlySupporters % 8 === 0) {
+                    monthlyCauses++;
+                }
+                
+                // Update UI
+                renderSupporterList();
+                updateStats();
+                
+                // Show notification
+                showNotification(`${content[currentLanguage].notificationThankYou}`);
+                
+                // Reset form
+                supporterNameInput.value = '';
+                customAmountInput.value = '';
+                messageInput.value = '';
+                amountOptions.forEach(opt => opt.classList.remove('selected'));
+                amountOptions[2].classList.add('selected');
+                selectedAmount = 1000;
+                
+                // Simulate another supporter after 5 seconds (for demo purposes)
+                setTimeout(() => {
+                    const randomName = generateIndianName();
+                    const randomAmount = generateRandomAmount();
+                    const randomSupporter = {
+                        name: randomName,
+                        amount: randomAmount,
+                        date: currentMonthDate,
+                        message: ""
+                    };
+                    
+                    supporters.unshift(randomSupporter);
+                    monthlySupporters++;
+                    monthlyAmount += randomAmount;
+                    
+                    renderSupporterList();
+                    updateStats();
+                    
+                    // Show notification about new supporter
+                    setTimeout(() => {
+                        showNotification(`${randomName} ${content[currentLanguage].notificationNewSupporter}${randomAmount}!`);
+                    }, 500);
+                }, 5000);
+            });
+            
+            // Enter key for support form
+            supporterNameInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    supportButton.click();
+                }
+            });
+            
+            customAmountInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    supportButton.click();
+                }
+            });
+            
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    supportButton.click();
+                }
+            });
         }
-
-        // Data Entry Form submission
-        dataEntryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Increment data entries counter
-            dataEntries++;
-            updateCounters();
-
-            // In a real application, you would send this data to a server
-            // For this demo, we'll just show a success message
-            dataSuccess.style.display = 'block';
-            setTimeout(() => {
-                dataSuccess.style.display = 'none';
-                dataEntryForm.reset();
-            }, 3000);
-        });
-
-        // Call Form submission
-        callForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Increment call attempts counter
-            callAttempts++;
-            updateCounters();
-
-            // Get form values
-            const customerName = document.getElementById('callCustomerName').value;
-            const phone = document.getElementById('callCustomerPhone').value;
-            const purpose = document.getElementById('callPurpose').value;
-            const duration = document.getElementById('callDuration').value;
-            const outcome = document.getElementById('callOutcome').value;
-            const nextAction = document.getElementById('nextAction').value;
-            const notes = document.getElementById('callNotes').value;
-
-            // Add to call log
-            const callItem = document.createElement('div');
-            callItem.className = 'call-item';
-            callItem.innerHTML = `
-                <h4>${customerName} - ${phone}</h4>
-                <p><strong>Purpose:</strong> ${purpose}</p>
-                <p><strong>Duration:</strong> ${duration} minutes</p>
-                <p><strong>Outcome:</strong> ${outcome}</p>
-                <p><strong>Next Action:</strong> ${nextAction || 'N/A'}</p>
-                <p><strong>Notes:</strong> ${notes || 'No notes'}</p>
-                <p><small>Logged on: ${new Date().toLocaleString()}</small></p>
-            `;
-
-            callLogs.insertBefore(callItem, callLogs.firstChild);
-
-            // Show success message
-            callSuccess.style.display = 'block';
-            setTimeout(() => {
-                callSuccess.style.display = 'none';
-                callForm.reset();
-            }, 3000);
-        });
-
-        // Initialize with some sample call logs
-        const sampleCalls = [
-            {
-                customerName: "Alex Johnson",
-                phone: "555-1234",
-                purpose: "Follow-up",
-                duration: "12",
-                outcome: "Customer Interested",
-                nextAction: "Send proposal",
-                notes: "Customer requested more information about premium package",
-                date: "2023-10-15 14:30"
-            },
-            {
-                customerName: "Maria Garcia",
-                phone: "555-5678",
-                purpose: "Sales",
-                duration: "8",
-                outcome: "Not Interested",
-                nextAction: "Follow up in 6 months",
-                notes: "Customer satisfied with current provider",
-                date: "2023-10-14 11:15"
-            }
-        ];
-
-        // Add sample calls to log
-        sampleCalls.forEach(call => {
-            const callItem = document.createElement('div');
-            callItem.className = 'call-item';
-            callItem.innerHTML = `
-                <h4>${call.customerName} - ${call.phone}</h4>
-                <p><strong>Purpose:</strong> ${call.purpose}</p>
-                <p><strong>Duration:</strong> ${call.duration} minutes</p>
-                <p><strong>Outcome:</strong> ${call.outcome}</p>
-                <p><strong>Next Action:</strong> ${call.nextAction}</p>
-                <p><strong>Notes:</strong> ${call.notes}</p>
-                <p><small>Logged on: ${call.date}</small></p>
-            `;
-            callLogs.appendChild(callItem);
-        });
+        
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-
 </html>
-
